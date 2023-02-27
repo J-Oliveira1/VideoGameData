@@ -6,12 +6,20 @@ const GameChart = ({games}) => {
 
     const [chartData, setChartData] = useState([]);
 
+
+    // .filter(game -> game.year > 2012)
+
+
     useEffect(() => {
-        let tempChartData = games.map(game => {
+        let recentGames = games.filter(game => game.year > 2012);
+        // Returns 1067 rows
+        // console.log(recentGames);
+        let tempChartData = recentGames.map(game => {
             return [game.platform, game.globalsales];
         });
         setChartData(tempChartData);
     }, [games]) 
+
     return ( 
         <Chart
         chartType="ColumnChart"

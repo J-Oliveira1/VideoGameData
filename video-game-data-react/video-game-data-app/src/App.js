@@ -16,6 +16,7 @@ function App() {
     setGames(response.data);
     console.log(response.data);
   }
+  
   return (
     <div className="col-md-6" >
       <div>

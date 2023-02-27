@@ -14,7 +14,6 @@ public class VideoGameApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(VideoGameApiApplication.class, args);
 	}
-
 }
 
 
