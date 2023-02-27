@@ -1,5 +1,6 @@
 package com.dcc.videoGameApi.service;
 
+import com.dcc.videoGameApi.VideoGameApiApplication;
 import com.dcc.videoGameApi.models.VideoGame;
 import com.dcc.videoGameApi.repository.VideoGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,7 @@ public class VideoGameService {
         return videoGameRepository.count();
     }
 
-
+    public List<VideoGame> GetAllRecordsOfGames(){
+        return videoGameRepository.findAll().stream().toList();
+    }
 }

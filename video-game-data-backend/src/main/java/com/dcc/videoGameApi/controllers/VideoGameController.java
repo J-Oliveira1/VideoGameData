@@ -23,4 +23,9 @@ public class VideoGameController {
         return service.GetCountOfGames();
     }
 
+    @GetMapping("/all")
+    public List<VideoGame> GetAllRecords(){
+        return service.GetAllRecordsOfGames();
+    }
+
 }
