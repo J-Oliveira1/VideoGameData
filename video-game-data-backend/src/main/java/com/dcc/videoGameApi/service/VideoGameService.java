@@ -23,7 +23,7 @@ public class VideoGameService {
     }
 
     public List<VideoGame> GetAllRecordsOfGames(){
-        return videoGameRepository.findAll().stream().toList();
+        return videoGameRepository.findAll();
     }
 
     public VideoGame GetIdOfGames(Integer id) { return videoGameRepository.findById(id).stream().findFirst().orElse(null);}

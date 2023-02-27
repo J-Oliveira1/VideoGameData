@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/VideoGameData.iml" filepath="$PROJECT_DIR$/.idea/VideoGameData.iml" />
-      <module fileurl="file://$PROJECT_DIR$/video-game-data-backend/videoGameApi.iml" filepath="$PROJECT_DIR$/video-game-data-backend/videoGameApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/VideoGameData-fs.iml" filepath="$PROJECT_DIR$/.idea/VideoGameData-fs.iml" />
     </modules>
   </component>
 </project>
