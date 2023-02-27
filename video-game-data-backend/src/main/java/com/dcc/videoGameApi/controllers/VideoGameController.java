@@ -4,10 +4,7 @@ import com.dcc.videoGameApi.models.VideoGame;
 import com.dcc.videoGameApi.repository.VideoGameRepository;
 import com.dcc.videoGameApi.service.VideoGameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
@@ -26,6 +23,11 @@ public class VideoGameController {
     @GetMapping("/all")
     public List<VideoGame> GetAllRecords(){
         return service.GetAllRecordsOfGames();
+    }
+
+    @GetMapping("/getById/{id}")
+    public VideoGame GetId(@PathVariable Integer id ){
+        return service.GetIdOfGames(id);
     }
 
 }

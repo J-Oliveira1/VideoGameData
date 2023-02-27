@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Id;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,4 +25,6 @@ public class VideoGameService {
     public List<VideoGame> GetAllRecordsOfGames(){
         return videoGameRepository.findAll().stream().toList();
     }
+
+    public VideoGame GetIdOfGames(Integer id) { return videoGameRepository.findById(id).stream().findFirst().orElse(null);}
 }
