@@ -1,6 +1,5 @@
-const GameDetails = ({selectedGame}) => {
-    if (selectedGame) {
-
+const GameDetails = ({selectedGame, game}) => {
+    if (selectedGame === game) {
         return (
             <div>
       {selectedGame && (

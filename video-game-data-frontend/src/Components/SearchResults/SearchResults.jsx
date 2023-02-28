@@ -16,19 +16,23 @@ const SearchResults = ({ filteredGames, selectedGame, setSelectedGame }) => {
         <tbody>
           {filteredGames.map((game) => {
             return (
-              <tr key={game.id}>
-                <td>{game.name}</td>
-                <td>
-                  <button onClick={() => handleGameCLick(game)}>
-                    See Details
-                  </button>
-                </td>
-              </tr>
+              <div>
+                <tr key={game.id}>
+                  <td>{game.name}</td>
+                  <td>
+                    <button onClick={() => handleGameCLick(game)}>
+                      See Details
+                    </button>
+                  </td>
+                </tr>
+                <div>
+                  <GameDetails selectedGame={selectedGame} game={game}/>
+                </div>
+              </div>
             );
           })}
         </tbody>
       </table>
-      <GameDetails selectedGame={selectedGame} />
     </div>
   );
 };
