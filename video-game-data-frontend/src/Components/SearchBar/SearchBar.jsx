@@ -2,17 +2,22 @@ import React, { useState } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
 
 
-const SearchBar = ({getAllGames, videoGames}) => {
+const SearchBar = ({ videoGames, filteredGames, setFilteredGames }) => {
 
     const [searchName, setSearchName] = useState('');
 
 
     function handleSearch(event){
         event.preventDefault();
-        let filteredGames = videoGames.filter(game => game.name.includes(searchName));
-        return (
+        setFilteredGames(videoGames.filter(game => game.name.includes(searchName)));
+        displayFilteredGames();
+    }
+
+    function displayFilteredGames(){
+        console.log(filteredGames)
+        return(
             <SearchResults filteredGames={filteredGames}/>
-        );
+        )
     }
 
     return ( 

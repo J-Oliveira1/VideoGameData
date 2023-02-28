@@ -7,6 +7,7 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 
 function App() {
   const [videoGames, setVideoGames] = useState([]);
+  const [filteredGames, setFilteredGames] = useState([]);
 
   useEffect(() => {
     getAllGames();
@@ -15,14 +16,13 @@ function App() {
   async function getAllGames() {
     let response = await axios.get("http://localhost:8080/all/");
     setVideoGames(response.data);
-    console.log(response.data);
   }
 
   return (
     <div>
       <GameChart videoGames={videoGames} />
       <AnalysisChart videoGames={videoGames} />
-      <SearchBar getAllGames={getAllGames} videoGames={videoGames}/>
+      <SearchBar videoGames={videoGames} filteredGames={filteredGames} setFilteredGames={setFilteredGames}/>
     </div>
   );
 }
