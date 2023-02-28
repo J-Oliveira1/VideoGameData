@@ -1,36 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import GameDetails from "../GameDetails/GameDetails";
 
-const SearchResults = ({ filteredGames }) => {
+const SearchResults = ({ filteredGames, selectedGame, setSelectedGame }) => {
+  function handleGameCLick(game) {
+    setSelectedGame(game);
+  }
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Game Rank</th>
-          <th>Name</th>
-          <th>Platform</th>
-          <th>Year</th>
-          <th>Genre</th>
-          <th>Publisher</th>
-        </tr>
-      </thead>
-      <tbody>
-        {filteredGames.map((game) => {
-          return (
-            <tr key={game.id}>
-              <td>{game.id}</td>
-              <td>{game.game_rank}</td>
-              <td>{game.name}</td>
-              <td>{game.platform}</td>
-              <td>{game.year}</td>
-              <td>{game.genre}</td>
-              <td>{game.publisher}</td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+    <div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Game Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredGames.map((game) => {
+            return (
+              <tr key={game.id}>
+                <td>{game.name}</td>
+                <td>
+                  <button onClick={() => handleGameCLick(game)}>
+                    See Details
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <GameDetails selectedGame={selectedGame} />
+    </div>
   );
 };
-
 export default SearchResults;

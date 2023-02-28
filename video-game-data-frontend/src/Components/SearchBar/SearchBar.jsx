@@ -3,6 +3,7 @@ import SearchResults from "../SearchResults/SearchResults";
 
 const SearchBar = ({ videoGames, filteredGames, setFilteredGames }) => {
   const [searchName, setSearchName] = useState("");
+  const [selectedGame, setSelectedGame] = useState();
 
   function handleSearch(event) {
     event.preventDefault();
@@ -12,6 +13,7 @@ const SearchBar = ({ videoGames, filteredGames, setFilteredGames }) => {
     setFilteredGames(filteredGames);
     console.log(filteredGames)
     setSearchName("")
+    setSelectedGame("")
   }
 
   return (
@@ -24,7 +26,7 @@ const SearchBar = ({ videoGames, filteredGames, setFilteredGames }) => {
         />
         <button type="submit">Search</button>
       </form>
-      <SearchResults filteredGames={filteredGames} />
+      <SearchResults filteredGames={filteredGames} selectedGame={selectedGame} setSelectedGame={setSelectedGame} />
     </div>
   );
 };
