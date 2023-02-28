@@ -1,20 +1,17 @@
 import { Chart } from "react-google-charts";
 import React, { useState, useEffect } from "react";
 
-const GameChart = ({ videoGames }) => {
+const AnalysisChart = ({ videoGames }) => {
   function generateDataFormChart() {
 
-    let filteredGames = videoGames.filter(game => game.year >= 2013);
-
+    let filteredGames = videoGames.filter(game => game.year < 2000);
 
     let platforms = filteredGames.map(game => {
         return game.platform
     });
-
     
     let distinctPlatforms = [... new Set(platforms)]
     
-
     let platformArrays = distinctPlatforms.map(platform => {
 
         let allGamesForPlatform = filteredGames.filter(game => game.platform === platform);
@@ -25,22 +22,20 @@ const GameChart = ({ videoGames }) => {
            
         }
 
-        return [platform, gameSales, "silver"]
+        return [platform, gameSales, "blue"]
     });
-
 
     const data = [
         ["Platform", "Global Sales", { role: "style" }],
         ...platformArrays
       ];
-
       return data;
   }
 
   return (
     <div>
         <div>
-          <h2>Platform by Global Sales in Millions</h2>
+            <h4>What did the video game market look  like pre 2000s?</h4>
       <Chart
         chartType="ColumnChart"
         width="100%"
@@ -52,5 +47,4 @@ const GameChart = ({ videoGames }) => {
   );
 };
 
-export default GameChart;
-
+export default AnalysisChart;

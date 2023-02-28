@@ -2,6 +2,8 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import GameChart from "./Components/GameChart/GameChart";
+import AnalysisChart from "./Components/AnalysisChart/AnalysisChart";
+import SearchBar from "./Components/SearchBar/SearchBar";
 
 function App() {
   const [videoGames, setVideoGames] = useState([]);
@@ -19,6 +21,8 @@ function App() {
   return (
     <div>
       <GameChart videoGames={videoGames} />
+      <AnalysisChart videoGames={videoGames} />
+      <SearchBar getAllGames={getAllGames} videoGames={videoGames}/>
     </div>
   );
 }
