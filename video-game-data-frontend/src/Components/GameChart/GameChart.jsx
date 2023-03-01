@@ -25,7 +25,7 @@ const GameChart = ({ videoGames }) => {
            
         }
 
-        return [platform, gameSales, "silver"]
+        return [platform, gameSales, "blue"]
     });
 
 
@@ -40,7 +40,7 @@ const GameChart = ({ videoGames }) => {
   return (
     <div>
         <div>
-          <h2>Platform by Global Sales in Millions</h2>
+          <h3>Platform by Global Sales in Millions</h3>
       <Chart
         chartType="ColumnChart"
         width="100%"

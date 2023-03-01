@@ -35,7 +35,7 @@ const AnalysisChart = ({ videoGames }) => {
   return (
     <div>
         <div>
-            <h4>What did the video game market look  like pre 2000s?</h4>
+            <h3>What did the video game market look  like pre 2000s?</h3>
       <Chart
         chartType="ColumnChart"
         width="100%"

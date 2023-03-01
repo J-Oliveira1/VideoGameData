@@ -9,7 +9,7 @@ const HomePage = ({ videoGames }) => {
     <Table striped bordered hover variant="dark">
       <thead>
         <tr>
-        <th colSpan={3}><h3>Top 25 Games Of All Time!</h3></th>
+        <th colSpan={3}><h4>Top 25 Games Of All Time!</h4></th>
         </tr>
         <tr>
           <th>Name</th>

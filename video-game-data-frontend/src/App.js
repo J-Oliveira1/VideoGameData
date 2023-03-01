@@ -9,7 +9,7 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [videoGames, setVideoGames] = useState([]);
-  const [filteredGames, setFilteredGames] = useState([]);
+  
 
   useEffect(() => {
     getAllGames();
@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage videoGames={videoGames} />}/>
         <Route path="/charts" element={<Charts videoGames={videoGames}/>}/>
-        <Route path="/search" element={<SearchBar videoGames={videoGames} filteredGames={filteredGames} setFilteredGames={setFilteredGames}/>}/>
+        <Route path="/search" element={<SearchBar videoGames={videoGames} />}/>
       </Routes>
     </div>
   );

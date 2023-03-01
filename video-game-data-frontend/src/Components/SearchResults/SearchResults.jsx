@@ -1,9 +1,18 @@
 import React from "react";
 import GameDetails from "../GameDetails/GameDetails";
+import "../SearchResults/SearchResults.css";
+import Button from 'react-bootstrap/Button';
 
 const SearchResults = ({ filteredGames, selectedGame, setSelectedGame }) => {
   function handleGameCLick(game) {
-    setSelectedGame(game);
+    if (selectedGame === game) {
+      setSelectedGame(null)
+    } 
+    else {
+      setSelectedGame(game);
+
+    }
+    
   }
   return (
     <div>
@@ -16,19 +25,19 @@ const SearchResults = ({ filteredGames, selectedGame, setSelectedGame }) => {
         <tbody>
           {filteredGames.map((game) => {
             return (
-              <div>
-                <tr key={game.id}>
+                <div>
+
+                <tr key={game.id} className="game-result">
                   <td>{game.name}</td>
+                  <GameDetails selectedGame={selectedGame} game={game} />
                   <td>
-                    <button onClick={() => handleGameCLick(game)}>
+                    <Button variant='dark' onClick={() => handleGameCLick(game)}>
                       See Details
-                    </button>
+                    </Button>
                   </td>
                 </tr>
-                <div>
-                  <GameDetails selectedGame={selectedGame} game={game}/>
                 </div>
-              </div>
+              
             );
           })}
         </tbody>

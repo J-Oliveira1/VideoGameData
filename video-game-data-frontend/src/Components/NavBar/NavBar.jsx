@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../NavBar/NavBar.css";
 
-const NavBar = ({}) => {
+const NavBar = () => {
   return (
     <Navbar
       bg="dark"
@@ -14,10 +14,10 @@ const NavBar = ({}) => {
       collapseOnSelect
       className="navBar"
     >
-      <Container>
-        <Link to="/">
-          <Navbar.Brand>
-            <h3>Video Game Data</h3>
+      <Container >
+        <Link to="/" className="text-decoration-none" >
+          <Navbar.Brand href="#home">
+            <h3 >Video Game Data</h3>
           </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -26,12 +26,12 @@ const NavBar = ({}) => {
             {/* <Nav.Link href="#home">Charts</Nav.Link>
               <Nav.Link href="#link">Link</Nav.Link> */}
             <NavDropdown >
-              <Link to="/charts">
+              <Link to="/charts" className="text-decoration-none">
                 <NavDropdown.Item href="#action/3.1">
                   Video Game Sales
                 </NavDropdown.Item>
               </Link>
-              <Link to="/search">
+              <Link to="/search" className="text-decoration-none">
                 <NavDropdown.Item href="#action/3.2">
                   Search Games
                 </NavDropdown.Item>
