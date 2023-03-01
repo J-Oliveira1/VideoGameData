@@ -24,7 +24,7 @@ function App() {
     <div>
       <NavBar/>
       <Routes>
-        <Route path="/" element={<HomePage videoGames={videoGames}/>}/>
+        <Route path="/" element={<HomePage videoGames={videoGames} />}/>
         <Route path="/charts" element={<Charts videoGames={videoGames}/>}/>
         <Route path="/search" element={<SearchBar videoGames={videoGames} filteredGames={filteredGames} setFilteredGames={setFilteredGames}/>}/>
       </Routes>
