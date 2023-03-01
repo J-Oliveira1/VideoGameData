@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import GameDetails from "../GameDetails/GameDetails";
 
 const SearchResults = ({ filteredGames, selectedGame, setSelectedGame }) => {

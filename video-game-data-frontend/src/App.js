@@ -1,9 +1,11 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import GameChart from "./Components/GameChart/GameChart";
-import AnalysisChart from "./Components/AnalysisChart/AnalysisChart";
 import SearchBar from "./Components/SearchBar/SearchBar";
+import NavBar from "./Components/NavBar/NavBar";
+import Charts from "./Components/Charts/Charts";
+import HomePage from "./Components/HomePage/HomePage";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [videoGames, setVideoGames] = useState([]);
@@ -20,9 +22,12 @@ function App() {
 
   return (
     <div>
-      <GameChart videoGames={videoGames} />
-      <AnalysisChart videoGames={videoGames} />
-      <SearchBar videoGames={videoGames} filteredGames={filteredGames} setFilteredGames={setFilteredGames}/>
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={<HomePage videoGames={videoGames}/>}/>
+        <Route path="/charts" element={<Charts videoGames={videoGames}/>}/>
+        <Route path="/search" element={<SearchBar videoGames={videoGames} filteredGames={filteredGames} setFilteredGames={setFilteredGames}/>}/>
+      </Routes>
     </div>
   );
 }
