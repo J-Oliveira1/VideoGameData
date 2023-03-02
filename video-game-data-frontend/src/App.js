@@ -7,9 +7,9 @@ import Charts from "./Components/Charts/Charts";
 import HomePage from "./Components/HomePage/HomePage";
 import { Routes, Route } from "react-router-dom";
 
+
 function App() {
   const [videoGames, setVideoGames] = useState([]);
-  
 
   useEffect(() => {
     getAllGames();
@@ -22,12 +22,15 @@ function App() {
 
   return (
     <div>
-      <NavBar/>
-      <Routes>
-        <Route path="/" element={<HomePage videoGames={videoGames} />}/>
-        <Route path="/charts" element={<Charts videoGames={videoGames}/>}/>
-        <Route path="/search" element={<SearchBar videoGames={videoGames} />}/>
+      <NavBar />
+      <div className="main">
+
+      <Routes >
+        <Route path="/" element={<HomePage videoGames={videoGames} />} />
+        <Route path="/charts" element={<Charts videoGames={videoGames} />} />
+        <Route path="/search" element={<SearchBar videoGames={videoGames} />} />
       </Routes>
+      </div>
     </div>
   );
 }

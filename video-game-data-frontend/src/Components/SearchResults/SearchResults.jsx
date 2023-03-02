@@ -1,17 +1,20 @@
 import React from "react";
 import GameDetails from "../GameDetails/GameDetails";
 import "../SearchResults/SearchResults.css";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 
-const SearchResults = ({ filteredGames, selectedGame, setSelectedGame, videoGames }) => {
+const SearchResults = ({
+  filteredGames,
+  selectedGame,
+  setSelectedGame,
+  videoGames,
+}) => {
   function handleGameCLick(game) {
     if (selectedGame === game) {
-      setSelectedGame(null)
-    } 
-    else {
+      setSelectedGame(null);
+    } else {
       setSelectedGame(game);
     }
-    
   }
   return (
     <div>
@@ -24,18 +27,24 @@ const SearchResults = ({ filteredGames, selectedGame, setSelectedGame, videoGame
         <tbody>
           {filteredGames.map((game) => {
             return (
-                <div>
-
+              <div>
                 <tr key={game.id} className="game-result">
                   <td>{game.name}</td>
-                  <GameDetails selectedGame={selectedGame} game={game} videoGames={videoGames} />
+                  <GameDetails
+                    selectedGame={selectedGame}
+                    game={game}
+                    videoGames={videoGames}
+                  />
                   <td>
-                    <Button variant='dark' onClick={() => handleGameCLick(game)}>
+                    <Button
+                      variant="dark"
+                      onClick={() => handleGameCLick(game)}
+                    >
                       See Details
                     </Button>
                   </td>
                 </tr>
-                </div>   
+              </div>
             );
           })}
         </tbody>

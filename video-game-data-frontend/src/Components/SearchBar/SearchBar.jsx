@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchResults from "../SearchResults/SearchResults";
-import Button from 'react-bootstrap/Button';
-import "../SearchBar/SearchBar.css"
+import Button from "react-bootstrap/Button";
+import "../SearchBar/SearchBar.css";
 
 const SearchBar = ({ videoGames }) => {
   const [searchName, setSearchName] = useState("");
@@ -14,13 +14,14 @@ const SearchBar = ({ videoGames }) => {
 
   function handleSearch(event) {
     event.preventDefault();
+    const lowercaseSearchName = searchName.toLocaleLowerCase();
     const filteredGames = videoGames.filter((game) =>
-      game.name.includes(searchName)
+      game.name.toLowerCase().includes(lowercaseSearchName)
     );
     setFilteredGames(filteredGames);
-    console.log(filteredGames)
-    setSearchName("")
-    setSelectedGame(null)
+    console.log(filteredGames);
+    setSearchName("");
+    setSelectedGame(null);
   }
 
   return (
@@ -31,9 +32,16 @@ const SearchBar = ({ videoGames }) => {
           value={searchName}
           onChange={(event) => setSearchName(event.target.value)}
         />
-        <Button variant="outline-dark" size="sm" type="submit">Search</Button>
+        <Button variant="outline-dark" size="sm" type="submit">
+          Search
+        </Button>
       </form>
-      <SearchResults filteredGames={filteredGames} selectedGame={selectedGame} setSelectedGame={setSelectedGame} videoGames={videoGames}/>
+      <SearchResults
+        filteredGames={filteredGames}
+        selectedGame={selectedGame}
+        setSelectedGame={setSelectedGame}
+        videoGames={videoGames}
+      />
     </div>
   );
 };

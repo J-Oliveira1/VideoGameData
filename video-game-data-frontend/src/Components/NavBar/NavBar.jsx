@@ -7,7 +7,7 @@ import "../NavBar/NavBar.css";
 
 const NavBar = () => {
   return (
-    <Navbar
+    <Navbar fixed="top"
       bg="dark"
       expand="lg"
       variant="dark"
@@ -15,17 +15,15 @@ const NavBar = () => {
       className="navBar"
     >
       <Container >
-        <Link to="/" className="text-decoration-none" >
+        <Link to="/" className="text-decoration-none">
           <Navbar.Brand href="#home">
-            <h3 >Video Game Data</h3>
+            <h3>Video Game Data</h3>
           </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            {/* <Nav.Link href="#home">Charts</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link> */}
-            <NavDropdown >
+            <NavDropdown>
               <Link to="/charts" className="text-decoration-none">
                 <NavDropdown.Item href="#action/3.1">
                   Video Game Sales
@@ -41,19 +39,6 @@ const NavBar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    // <nav>
-    //     <ul>
-    //         <Link to='/'>
-    //             <li><h2>Video Game Data</h2></li>
-    //         </Link>
-    //         <Link to='/charts'>
-    //             <li>Video Game Sales</li>
-    //         </Link>
-    //         <Link to='/search'>
-    //             <li>Search Games</li>
-    //         </Link>
-    //     </ul>
-    // </nav>
   );
 };
 

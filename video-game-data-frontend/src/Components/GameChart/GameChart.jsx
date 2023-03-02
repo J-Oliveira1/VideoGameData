@@ -2,38 +2,32 @@ import { Chart } from "react-google-charts";
 
 const GameChart = ({ videoGames }) => {
   function generateDataFormChart() {
-
     // Games from 2013 and newer
-    let filteredGames = videoGames.filter(game => game.year >= 2013);
+    let filteredGames = videoGames.filter((game) => game.year >= 2013);
 
-
-    let platforms = filteredGames.map(game => {
-        return game.platform
+    let platforms = filteredGames.map((game) => {
+      return game.platform;
     });
 
-    
-    let distinctPlatforms = [...new Set(platforms)]
-    
+    let distinctPlatforms = [...new Set(platforms)];
 
-    let platformArrays = distinctPlatforms.map(platform => {
-
-        let gameSales = 0;
-        for (let i = 0; i < filteredGames.length; i++ ){
-            if (filteredGames[i].platform === platform) {
-            gameSales += filteredGames[i].globalsales}
-           
+    let platformArrays = distinctPlatforms.map((platform) => {
+      let gameSales = 0;
+      for (let i = 0; i < filteredGames.length; i++) {
+        if (filteredGames[i].platform === platform) {
+          gameSales += filteredGames[i].globalsales;
         }
+      }
 
-        return [platform, gameSales, "blue"]
+      return [platform, gameSales, "blue"];
     });
-
 
     const data = [
-        ["Platform", "Global Sales", { role: "style" }],
-        ...platformArrays
-      ];
+      ["Platform", "Global Sales", { role: "style" }],
+      ...platformArrays,
+    ];
 
-      return data;
+    return data;
   }
 
   const options = {
@@ -50,9 +44,8 @@ const GameChart = ({ videoGames }) => {
       height="400px"
       data={generateDataFormChart()}
       options={options}
-      />
+    />
   );
 };
 
 export default GameChart;
-
