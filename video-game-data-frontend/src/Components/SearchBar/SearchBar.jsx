@@ -33,7 +33,7 @@ const SearchBar = ({ videoGames }) => {
         />
         <Button variant="outline-dark" size="sm" type="submit">Search</Button>
       </form>
-      <SearchResults filteredGames={filteredGames} selectedGame={selectedGame} setSelectedGame={setSelectedGame} />
+      <SearchResults filteredGames={filteredGames} selectedGame={selectedGame} setSelectedGame={setSelectedGame} videoGames={videoGames}/>
     </div>
   );
 };

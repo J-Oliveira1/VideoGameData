@@ -1,4 +1,6 @@
-const GameDetails = ({selectedGame, game}) => {
+import PieChart from "../PieChart/PieChart";
+
+const GameDetails = ({selectedGame, game, videoGames}) => {
     if (selectedGame === game) {
         return (
             <div>
@@ -12,6 +14,9 @@ const GameDetails = ({selectedGame, game}) => {
           <p> Year: {selectedGame.year}</p>
           <p> Genre: {selectedGame.genre}</p>
           <p> Publisher: {selectedGame.publisher}</p>
+          <div>
+            <PieChart selectedGame={selectedGame} videoGames={videoGames}/>
+          </div>
         </div>
       )}
     </div>

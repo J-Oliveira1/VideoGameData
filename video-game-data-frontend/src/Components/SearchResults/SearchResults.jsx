@@ -3,14 +3,13 @@ import GameDetails from "../GameDetails/GameDetails";
 import "../SearchResults/SearchResults.css";
 import Button from 'react-bootstrap/Button';
 
-const SearchResults = ({ filteredGames, selectedGame, setSelectedGame }) => {
+const SearchResults = ({ filteredGames, selectedGame, setSelectedGame, videoGames }) => {
   function handleGameCLick(game) {
     if (selectedGame === game) {
       setSelectedGame(null)
     } 
     else {
       setSelectedGame(game);
-
     }
     
   }
@@ -29,15 +28,14 @@ const SearchResults = ({ filteredGames, selectedGame, setSelectedGame }) => {
 
                 <tr key={game.id} className="game-result">
                   <td>{game.name}</td>
-                  <GameDetails selectedGame={selectedGame} game={game} />
+                  <GameDetails selectedGame={selectedGame} game={game} videoGames={videoGames} />
                   <td>
                     <Button variant='dark' onClick={() => handleGameCLick(game)}>
                       See Details
                     </Button>
                   </td>
                 </tr>
-                </div>
-              
+                </div>   
             );
           })}
         </tbody>
