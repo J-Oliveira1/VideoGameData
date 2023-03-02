@@ -19,28 +19,31 @@ const AnalysisChart = ({ videoGames }) => {
             if (filteredGames[i].platform === platform) {
             gameSales += filteredGames[i].globalsales}
         }
-        return [platform, gameSales, "blue"]
+        return [platform, gameSales]
     });
 
     const data = [
-        ["Platform", "Global Sales", { role: "style" }],
+        ["Platform", "Global Sales"],
         ...platformArrays
       ];
       return data;
   }
 
+  const options = {
+    chart: {
+      title: "What Did Video Game Market Pre-2000s Look Like?",
+      subtitle: "Data: 1980-2000",
+    },
+  };
+
   return (
-    <div>
-        <div>
-            <h3>What did the video game market look  like pre 2000s?</h3>
       <Chart
-        chartType="ColumnChart"
+        chartType="Bar"
         width="100%"
         height="400px"
         data={generateDataFormChart()}
+        options={options}
         />
-        </div>
-    </div>
   );
 };
 

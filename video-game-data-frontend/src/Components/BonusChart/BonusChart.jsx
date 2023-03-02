@@ -49,7 +49,7 @@ const BonusChart = ({ videoGames }) => {
     });
 
     const data = [
-        ["Platform", "Total Sales"],
+        ["Platform (Top Selling Publisher) ", "Total Sales"],
         ...platformArrays,
     ];
 

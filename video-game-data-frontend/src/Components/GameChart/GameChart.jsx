@@ -36,18 +36,21 @@ const GameChart = ({ videoGames }) => {
       return data;
   }
 
+  const options = {
+    chart: {
+      title: "Platform by Global Sales in Millions",
+      subtitle: "Data: 2013-2016",
+    },
+  };
+
   return (
-    <div>
-        <div>
-          <h3>Platform by Global Sales in Millions</h3>
-      <Chart
-        chartType="ColumnChart"
-        width="100%"
-        height="400px"
-        data={generateDataFormChart()}
-        />
-        </div>
-    </div>
+    <Chart
+      chartType="Bar"
+      width="100%"
+      height="400px"
+      data={generateDataFormChart()}
+      options={options}
+      />
   );
 };
 
