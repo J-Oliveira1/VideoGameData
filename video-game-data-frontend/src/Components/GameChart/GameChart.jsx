@@ -1,9 +1,9 @@
 import { Chart } from "react-google-charts";
-import React, { useState, useEffect } from "react";
 
 const GameChart = ({ videoGames }) => {
   function generateDataFormChart() {
 
+    // Games from 2013 and newer
     let filteredGames = videoGames.filter(game => game.year >= 2013);
 
 
@@ -12,12 +12,11 @@ const GameChart = ({ videoGames }) => {
     });
 
     
-    let distinctPlatforms = [... new Set(platforms)]
+    let distinctPlatforms = [...new Set(platforms)]
     
 
     let platformArrays = distinctPlatforms.map(platform => {
 
-        let allGamesForPlatform = filteredGames.filter(game => game.platform === platform);
         let gameSales = 0;
         for (let i = 0; i < filteredGames.length; i++ ){
             if (filteredGames[i].platform === platform) {
