@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import { Chart } from "react-google-charts";
 
 const BonusChart = ({ videoGames }) => {
@@ -46,11 +46,11 @@ const BonusChart = ({ videoGames }) => {
             }
         }
 
-        return [platform, gameSales, highestSales]
+        return [platform, gameSales , topPublisher]
     });
 
     const data = [
-        ["Platform", "Total Sales", "Top Selling Publisher Sales"],
+        ["Platform", "Total Sales", "Publisher" ],
         ...platformArrays,
     ];
 
