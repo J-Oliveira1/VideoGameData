@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Chart } from "react-google-charts";
 
 const BonusChart = ({ videoGames }) => {
@@ -7,6 +8,12 @@ const BonusChart = ({ videoGames }) => {
         return game.platform
     });
     distinctPlatforms = [...new Set(distinctPlatforms)]
+
+    // Get Publisher Array
+    let distinctPublishers = videoGames.map(game=>{
+        return game.publisher
+    })
+    distinctPublishers = [...new Set(distinctPublishers)]
     
     let platformArrays = distinctPlatforms.map(platform => {
         let gameSales = 0;
@@ -15,19 +22,6 @@ const BonusChart = ({ videoGames }) => {
                 gameSales += videoGames[i].globalsales
             }
         }
-        return [platform, gameSales]
-    });
-
-
-    // Get Publisher Array
-    let distinctPublishers = videoGames.map(game=>{
-        return game.publisher
-    })
-    distinctPublishers = [...new Set(distinctPublishers)]
-
-    // Map over each platform to return only one top publisher per platform
-    let topPublishersArray = distinctPlatforms.map(platform => {
-        // Will assign highest seling publisher for platform
         let topPublisher = null;
         // Will be used to compare publisher sales
         let highestSales = 0;
@@ -51,36 +45,29 @@ const BonusChart = ({ videoGames }) => {
                 topPublisher = distinctPublishers[i];
             }
         }
-        return [topPublisher, highestSales]
+
+        return [platform, gameSales, highestSales]
     });
 
-
-
-    const platformTotalSales = [
-        ["Platform", "Global Sales"],
-        ...platformArrays
-      ];
-
-    const publisherTotalSales = [
-        ["Publisher", "Global Sales"],
-        ...topPublishersArray,
-    ]
-
-    const diffdata = {
-        old: platformTotalSales,
-        new: publisherTotalSales,
-    };
+    const data = [
+        ["Platform", "Total Sales", "Top Selling Publisher Sales"],
+        ...platformArrays,
+    ];
 
     const options = {
-        legend: { position: "top" },
+        chart: {
+          title: "Platform Sales and Top Selling Publishers",
+          subtitle: "Sales: 1980-2016",
+        },
     };
+
 
   return (
     <Chart
-      chartType="BarChart"
+      chartType="Bar"
       width="100%"
-      height="400px"
-      diffdata={diffdata}
+      height="800px"
+      data={data}
       options={options}
     />
   );
