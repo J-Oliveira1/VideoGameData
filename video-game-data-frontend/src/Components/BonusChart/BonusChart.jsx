@@ -1,4 +1,3 @@
-
 import { Chart } from "react-google-charts";
 
 const BonusChart = ({ videoGames }) => {
@@ -15,6 +14,7 @@ const BonusChart = ({ videoGames }) => {
     })
     distinctPublishers = [...new Set(distinctPublishers)]
     
+
     let platformArrays = distinctPlatforms.map(platform => {
         let gameSales = 0;
         for (let i = 0; i < videoGames.length; i++ ){
@@ -45,12 +45,11 @@ const BonusChart = ({ videoGames }) => {
                 topPublisher = distinctPublishers[i];
             }
         }
-
-        return [platform, gameSales , topPublisher]
+        return [platform + " (" + topPublisher + ") ", gameSales]
     });
 
     const data = [
-        ["Platform", "Total Sales", "Publisher" ],
+        ["Platform", "Total Sales"],
         ...platformArrays,
     ];
 
@@ -59,6 +58,7 @@ const BonusChart = ({ videoGames }) => {
           title: "Platform Sales and Top Selling Publishers",
           subtitle: "Sales: 1980-2016",
         },
+        bars: "horizontal",
     };
 
 
