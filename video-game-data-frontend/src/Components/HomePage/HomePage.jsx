@@ -6,7 +6,7 @@ const HomePage = ({ videoGames }) => {
     .sort((a, b) => a.game_rank - b.game_rank);
 
   return (
-    <Table striped bordered hover variant="dark">
+    <Table striped bordered hover variant="">
       <thead>
         <tr>
         <th colSpan={3}><h4>Top 25 Games Of All Time!</h4></th>
